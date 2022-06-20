@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="wnbook060:Web exploded" />
+    </artifacts-to-build>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="6b0ee6c1-d748-4b38-9783-0e84f201b5cc" name="变更" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Tag Library Descriptor" />
+        <option value="Jsp File" />
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/wnbook/mapper/WnBookMapper.xml" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/wnbook/mapper/WnBookAdminMapper.xml" root0="SKIP_HIGHLIGHTING" />
+  </component>
+  <component name="LogFilters">
+    <option name="FILTER_ERRORS" value="false" />
+    <option name="FILTER_WARNINGS" value="false" />
+    <option name="FILTER_INFO" value="true" />
+    <option name="FILTER_DEBUG" value="true" />
+    <option name="CUSTOM_FILTER" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="29vGWcJpfv3cWTPPccqhIkMvXKu" />
+  <component name="ProjectViewState">
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="mysql" />
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/SQL 方言" value="MySQL" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../java蜗牛笔记第二阶段/书店9/12_网上书城/shine_bookshop" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="模块" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="File.Encoding" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="wnbook.log" />
+      <recent name="wnbook.service.imp" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\code\wnbook060\src\wnbook\mapper" />
+      <recent name="E:\code\wnbook060\web" />
+      <recent name="E:\code\wnbook060\web\WEB-INF\lib" />
+      <recent name="E:\code\wnbook060\web\javascript" />
+      <recent name="E:\code\wnbook060\web\WEB-INF" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\code\wnbook060\web\WEB-INF" />
+      <recent name="E:\code\wnbook060\web" />
+      <recent name="E:\code\wnbook060\web\WEB-INF\lib" />
+      <recent name="E:\code\wnbook060\src" />
+      <recent name="E:\code\wnbook060\src\wnbook" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="wnbook.servlet" />
+      <recent name="wnbook.service.imp" />
+      <recent name="wnbook.alipay" />
+      <recent name="wnbook.entity" />
+      <recent name="wnbook.service" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Tomcat 服务器.Tomcat 9.0.60">
+    <configuration name="IDTools" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="wnbook060" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="wnbook.util.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="wnbook.util" />
+      <option name="MAIN_CLASS_NAME" value="wnbook.util.IDTools" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="IDTools.getId" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="wnbook060" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="wnbook.util.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="wnbook.util" />
+      <option name="MAIN_CLASS_NAME" value="wnbook.util.IDTools" />
+      <option name="METHOD_NAME" value="getId" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestBook.testPage" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="wnbook060" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="wnbook.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="wnbook.test" />
+      <option name="MAIN_CLASS_NAME" value="wnbook.test.TestBook" />
+      <option name="METHOD_NAME" value="testPage" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestBook.testSelect" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="wnbook060" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="wnbook.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="wnbook.test" />
+      <option name="MAIN_CLASS_NAME" value="wnbook.test.TestBook" />
+      <option name="METHOD_NAME" value="testSelect" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestCate.testSelectById" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="wnbook060" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="wnbook.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="wnbook.test" />
+      <option name="MAIN_CLASS_NAME" value="wnbook.test.TestCate" />
+      <option name="METHOD_NAME" value="testSelectById" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestLog" type="TestNG" nameIsGenerated="true">
+      <module name="wnbook060" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="wnbook.log.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="wnbook.log" />
+      <option name="MAIN_CLASS_NAME" value="wnbook.log.TestLog" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Tomcat 9.0.60" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.60" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
+      <option name="BROWSER_ID" value="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" />
+      <option name="COMMON_VM_ARGUMENTS" value="-Dfile.encoding=GBK" />
+      <option name="UPDATING_POLICY" value="restart-server" />
+      <deployment>
+        <artifact name="wnbook060:Web exploded">
+          <settings>
+            <option name="CONTEXT_PATH" value="/wnbook060" />
+          </settings>
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="b79f5b13-78d3-403b-a247-97d79e980328" />
+      </server-settings>
+      <predefined_log_file enabled="true" id="Tomcat" />
+      <predefined_log_file enabled="true" id="Tomcat Catalina" />
+      <predefined_log_file id="Tomcat Manager" />
+      <predefined_log_file id="Tomcat Host Manager" />
+      <predefined_log_file id="Tomcat Localhost Access" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="9476" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Profile">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="wnbook060:Web exploded" />
+        </option>
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="JUnit.TestBook.testSelect" />
+      <item itemvalue="JUnit.TestCate.testSelectById" />
+      <item itemvalue="JUnit.TestBook.testPage" />
+      <item itemvalue="JUnit.IDTools" />
+      <item itemvalue="JUnit.IDTools.getId" />
+      <item itemvalue="TestNG.TestLog" />
+      <item itemvalue="Tomcat 服务器.Tomcat 9.0.60" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.IDTools" />
+        <item itemvalue="JUnit.IDTools.getId" />
+        <item itemvalue="JUnit.TestBook.testPage" />
+        <item itemvalue="JUnit.TestBook.testSelect" />
+        <item itemvalue="JUnit.TestCate.testSelectById" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="默认任务">
+      <changelist id="6b0ee6c1-d748-4b38-9783-0e84f201b5cc" name="变更" comment="" />
+      <created>1653986180524</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1653986180524</updated>
+      <workItem from="1653986181765" duration="10992000" />
+      <workItem from="1654008898077" duration="1827000" />
+      <workItem from="1654010803245" duration="3058000" />
+      <workItem from="1654045762433" duration="6389000" />
+      <workItem from="1654063408495" duration="3276000" />
+      <workItem from="1654066734540" duration="5943000" />
+      <workItem from="1654074736354" duration="881000" />
+      <workItem from="1654075667313" duration="14229000" />
+      <workItem from="1654137530071" duration="2130000" />
+      <workItem from="1654151640654" duration="57000" />
+      <workItem from="1654158023658" duration="9318000" />
+      <workItem from="1654180513332" duration="950000" />
+      <workItem from="1654183849308" duration="522000" />
+      <workItem from="1654186484338" duration="608000" />
+      <workItem from="1654219457070" duration="24082000" />
+      <workItem from="1654255669543" duration="15604000" />
+      <workItem from="1654307393767" duration="29160000" />
+      <workItem from="1654394352447" duration="1400000" />
+      <workItem from="1654412730360" duration="10218000" />
+      <workItem from="1654424444356" duration="4858000" />
+      <workItem from="1654496173528" duration="1191000" />
+      <workItem from="1654563522607" duration="23000" />
+      <workItem from="1654570830178" duration="69000" />
+      <workItem from="1654583913479" duration="1212000" />
+      <workItem from="1654589584833" duration="8746000" />
+      <workItem from="1654610113508" duration="4826000" />
+      <workItem from="1654615007778" duration="1562000" />
+      <workItem from="1654669032103" duration="8273000" />
+      <workItem from="1654689248384" duration="15773000" />
+      <workItem from="1654705390409" duration="370000" />
+      <workItem from="1654736892119" duration="14430000" />
+      <workItem from="1654763740375" duration="1226000" />
+      <workItem from="1654765956925" duration="359000" />
+      <workItem from="1654767512607" duration="15299000" />
+      <workItem from="1654826702418" duration="1686000" />
+      <workItem from="1654835609761" duration="10630000" />
+      <workItem from="1654865979710" duration="608000" />
+      <workItem from="1654868235125" duration="2834000" />
+      <workItem from="1654909234368" duration="21709000" />
+      <workItem from="1654937933266" duration="10753000" />
+      <workItem from="1654998014974" duration="19293000" />
+      <workItem from="1655083675603" duration="2439000" />
+      <workItem from="1655088140433" duration="12864000" />
+      <workItem from="1655114212553" duration="3436000" />
+      <workItem from="1655122264191" duration="587000" />
+      <workItem from="1655123059369" duration="11937000" />
+      <workItem from="1655170204786" duration="147000" />
+      <workItem from="1655171483884" duration="3411000" />
+      <workItem from="1655203172641" duration="16936000" />
+      <workItem from="1655223213450" duration="340000" />
+      <workItem from="1655223710128" duration="186000" />
+      <workItem from="1655254594204" duration="28939000" />
+      <workItem from="1655341720600" duration="23798000" />
+      <workItem from="1655380421453" duration="6315000" />
+      <workItem from="1655386777152" duration="9250000" />
+      <workItem from="1655431570615" duration="637000" />
+      <workItem from="1655435023271" duration="139000" />
+      <workItem from="1655461213213" duration="7529000" />
+      <workItem from="1655478055071" duration="5203000" />
+      <workItem from="1655516416972" duration="21641000" />
+      <workItem from="1655557153639" duration="8030000" />
+      <workItem from="1655604945485" duration="2717000" />
+      <workItem from="1655608361922" duration="16439000" />
+      <workItem from="1655687258008" duration="1550000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

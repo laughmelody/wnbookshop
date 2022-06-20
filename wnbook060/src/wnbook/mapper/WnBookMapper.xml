@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="wnbook.mapper.WnBookMapper">
+    <!--因为wnbook类里的属性大多数和数据库里的列名不一致，所以不能自动映射，需要我们手动写映射文件-->
+<!--    <cache/>-->
+    <resultMap id="WnBookResult" type="Wnbook">
+        <id column="id" property="id" />
+        <result column="book_name" property="bookName"/>
+        <result column="book_image" property="bookImage"/>
+        <result column="book_author" property="bookAuthor"/>
+        <result column="book_publish" property="bookPublish"/>
+        <result column="book_publish_date" property="bookPublishDate"/>
+        <result column="book_price" property="bookPrice"/>
+        <result column="book_introduce" property="bookIntroduce"/>
+        <result column="book_store_count" property="bookStoreCount"/>
+        <result column="book_sale_count" property="bookSaleCount"/>
+        <result column="book_collection_count" property="bookCollectionCount"/>
+        <result column="book_status" property="bookStatus"/>
+        <result column="gmt_create" property="gmtCreate"/>
+        <result column="gmt_modified" property="gmtModified"/>
+        <result column="is_delete" property="isDelete"/>
+
+<!--        多表联查方式-->
+            <association property="cate" javaType="WnBookCategory">
+                <id column="book_type_id" property="id"/>
+                <result column="type_name" property="typeName"/>
+            </association>
+
+<!--        分次查询  先查询wn_book表，把里面的type_id作为参数，根据id查出相应的type_name-->
+<!--        <association property="cate" javaType="WnBookCategory"-->
+<!--                     select="wnbook.mapper.WnBookCategoryMapper.selectCategoryById" column="book_type_id"/>-->
+
+    </resultMap>
+
+    <sql id="baseField">
+        id,book_name,book_image,book_author,book_publish,book_publish_date,book_price,book_type_id,book_introduce,
+        book_store_count,book_sale_count,book_collection_count,book_status,gmt_create,gmt_modified,is_delete
+    </sql>
+    <sql id="baseFieldCondition">
+        book.id, book_name, book_image, book_author, book_publish, book_publish_date, book_price,book_type_id,book_introduce,
+        book_store_count, book_sale_count, book_collection_count, book_status, book.gmt_create, book.gmt_modified,
+        book.is_delete
+    </sql>
+    <sql id="indexBook">
+        id,book_name,book_image,book_price
+    </sql>
+    <sql id="justName">
+        book_name
+    </sql>
+    <select id="selectAllBook" resultMap="WnBookResult">
+        select <include refid="baseField"></include> from wn_book
+    </select>
+
+    <!--好书热卖，新书推荐，收藏最多-->
+    <select id="selectBookByGood" resultMap="WnBookResult">
+        select <include refid="indexBook"></include> from wn_book order by book_sale_count desc limit 0,8
+    </select>
+    <select id="selectBookByNew" resultMap="WnBookResult">
+        select <include refid="indexBook"></include> from wn_book order by gmt_create desc limit 0,8
+    </select>
+    <select id="selectBookByCollection" resultMap="WnBookResult">
+        select <include refid="indexBook"></include> from wn_book order by book_collection_count limit 0,8
+    </select>
+
+    <select id="selectBookById" parameterType="int" resultMap="WnBookResult">
+        select * from wn_book where id = #{id}
+    </select>
+
+    <update id="updateBook" parameterType="WnBook">
+        update wn_book <set>
+            <if test="bookName !=null">book_name=#{bookName},</if>
+            <if test="bookPrice !=0">book_price=#{bookPrice},</if>
+            <if test="cate.id !=0 and cate !=null">book_type_id=#{cate.id},</if>
+            <if test="bookAuthor !=null">book_author=#{bookAuthor},</if>
+            <if test="bookImage !=null">book_image=#{bookImage},</if>
+            <if test="bookPublishDate !=null">book_publish_date=#{bookPublishDate},</if>
+            <if test="bookPublish !=null">book_publish=#{bookPublish},</if>
+            <if test="bookStoreCount !=0">book_store_count=#{bookStoreCount},</if>
+
+    </set>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteBook" parameterType="int">
+        delete from wn_book where id = #{id}
+    </delete>
+    <select id="selectBookByIds"  resultMap="WnBookResult">
+        select * from wn_book where id in
+        <foreach collection="array" item="id" open="(" close=")" separator=",">
+            #{id}
+        </foreach>
+    </select>
+
+    <select id="selectBookByList"  resultMap="WnBookResult">
+        select * from wn_book where id in
+        <foreach collection="list" item="id" open="(" close=")" separator=",">
+            #{id}
+        </foreach>
+    </select>
+
+    <select id="selectBookByCondition" parameterType="WnBook" resultMap="WnBookResult">
+        select<include refid="baseFieldCondition"/>, cate.type_name from wn_book book, wn_book_category cate
+
+        where book.book_type_id = cate.id
+
+        <if test="bookName!= null and bookName != ''">
+            and book_name like concat('%',#{bookName},'%')
+        </if>
+        <if test="bookPrice != null and bookPrice !=0">
+            and book_price between 0 and #{bookPrice}
+        </if>
+        <if test="cate != null and cate.id != 0">
+            and book_type_id = #{cate.id}
+        </if>
+    </select>
+
+
+<!--        <insert id="insertBooks" parameterType="WnBook">-->
+<!--            <selectKey keyColumn="id" keyProperty="id" resultType="int" order="AFTER">-->
+<!--                select last_insert_id()-->
+<!--            </selectKey>-->
+<!--            insert into  wn_book_admin(username,password,tel,gmt_create) values (#{username},#{password},#{tel},now())-->
+<!--        </insert>-->
+            <insert id="insertBook" parameterType="WnBook">
+
+           insert into wn_book(book_name,book_price,book_image,book_author,book_publish,book_publish_date,book_type_id,book_store_count)
+            values(#{bookName},#{bookPrice},#{bookImage},#{bookAuthor},#{bookPublish},#{bookPublishDate},#{cate.id},#{bookStoreCount})
+            </insert>
+</mapper>

@@ -1,0 +1,64 @@
+<!--<?xml version="1.0" encoding="UTF-8" ?>-->
+<!--<!DOCTYPE mapper-->
+<!--        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"-->
+<!--        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">-->
+
+<!--<mapper namespace="wnbook.mapper.WnBookCategoryMapper">-->
+
+<!--    <resultMap id="WnBookCategoryResult" type="WnBookCategory">-->
+<!--        <id column="id" property="id"/>-->
+<!--        <result column="type_name" property="typeName"/>-->
+<!--    </resultMap>-->
+
+<!--    <resultMap id="WnBookCategoryHaveList" type="WnBookCategory">-->
+<!--        <id column="id" property="id"/>-->
+<!--        <result column="type_name" property="typeName"/>-->
+
+<!--        &lt;!&ndash;给目录里的list属性赋值  一对多配置&ndash;&gt;-->
+<!--        <collection property="list" ofType="WnBook">-->
+<!--            <id column="book_id" property="id"/>-->
+<!--            <result column="book_name" property="bookName"/>-->
+<!--        </collection>-->
+<!--    </resultMap>-->
+
+<!--    <resultMap id="category" type="WnBookCategory">-->
+<!--        <id column="id" property="id"/>-->
+<!--        <result column="type_name" property="typeName"/>-->
+<!--    </resultMap>-->
+
+<!--    <select id="selectCategoryById" parameterType="int" resultMap="WnBookCategoryResult">-->
+<!--            select id,type_name   from wn_book_category where id = #{id}-->
+<!--    </select>-->
+
+<!--    <select id="selectAllCategory"  resultMap="WnBookCategoryResult">-->
+<!--        select *  from wn_book_category-->
+<!--    </select>-->
+
+<!--    <select id="selectAllHaveList" parameterType="int" resultMap="WnBookCategoryHaveList">-->
+<!--        select cate.*,book.id as book_id,book.book_name  from wn_book_category cate,wn_book book-->
+<!--        WHERE  cate.id = book.book_type_id and cate.id = #{id}-->
+<!--    </select>-->
+
+
+<!--    <delete id="deleteCategoryById" parameterType="int">-->
+<!--        delete from wn_book_category where id = #{id}-->
+<!--    </delete>-->
+
+<!--    <insert id="insertCategory" parameterType="WnBookCategory">-->
+<!--        <selectKey keyColumn="id" keyProperty="id" resultType="int" order="AFTER">-->
+<!--            select last_insert_id()-->
+<!--        </selectKey>-->
+<!--        insert into  wn_book_category(type_name,gmt_create)-->
+<!--        values (#{typeName},now())-->
+<!--    </insert>-->
+
+<!--    <update id="updateCategory" parameterType="WnBookCategory">-->
+<!--        update wn_book_category-->
+<!--        set           <if test="typeName !=null">type_name = #{typeName},</if>-->
+<!--            &lt;!&ndash;            <if test="gmtModified !=null">gmt_modified=now()</if>&ndash;&gt;-->
+
+<!--        where id = #{id}-->
+<!--    </update>-->
+
+
+<!--</mapper>-->

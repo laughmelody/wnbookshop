@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!--mybatis的主配置文件-->
+
+    <!--引入写好的数据库配置文件-->
+    <properties resource="db.properties"/>
+    <!--开启二级缓存-->
+<!--    <settings>-->
+<!--        <setting name="cacheEnabled" value="true"/>-->
+<!--    </settings>-->
+    <typeAliases>
+        <typeAlias type="wnbook.entity.WnBookAdmin" alias="WnBookAdmin"/>
+        <typeAlias type="wnbook.entity.WnBook" alias="WnBook"/>
+        <typeAlias type="wnbook.entity.WnBookCategory" alias="category"/>
+        <typeAlias type="wnbook.mapper.WnBookAddressMapper" alias="Address"/>
+
+        <package name="wnbook.entity"/>
+    </typeAliases>
+    <!--以插件的形式，吧pagehelper配置进来-->
+    <plugins>
+        <plugin interceptor="com.github.pagehelper.PageInterceptor"></plugin>
+    </plugins>
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <!--配置连接池-->
+            <dataSource type="POOLED">
+                <property name="driver" value="${jdbc.driver}"/>
+                <property name="url" value="${jdbc.url}"/>
+                <property name="username" value="${jdbc.user}"/>
+                <property name="password" value="${jdbc.password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <mappers>
+<!--        <mapper resource="wnbook/mapper/WnBookAdminMapper.xml"/>-->
+        <package name="wnbook.mapper"/>
+    </mappers>
+
+
+</configuration>

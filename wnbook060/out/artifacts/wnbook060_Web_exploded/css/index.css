@@ -1,0 +1,138 @@
+/* =================== 中间的菜单 =============================== */
+.cate-menu {
+	margin-top: 10px;
+	height: 400px;
+	background-color: white;
+}
+
+.cate-menu ul {
+	width: 240px;
+	padding: 0 15px;
+}
+
+.cate-menu ul li {
+	height: 79px;
+	font-size: 18px;
+	line-height: 80px;
+	border-bottom: 1px solid lightgray;
+}
+
+.cate-menu ul li a {
+	text-decoration: none;
+}
+
+.cate-menu ul li:hover {
+	background-color: lightgray;
+	color: white;
+	cursor: pointer;
+}
+
+.cate-menu ul li:hover a {
+	color: white;
+}
+
+/* ================== 轮播图设置 ===================== */
+
+.carousel {
+	width: 950px;
+}
+
+/* ================== 中间的广告 ===================== */
+.f {
+	width: 110%;
+}
+
+.ad-box {
+	width: 390px;
+	height: 160px;
+	margin-right: 10px;
+	background-color: white;
+}
+
+.ad-box .left {
+	width: 50%;
+	height: 100%;
+
+}
+
+.ad-box p {
+	height: 50%;
+	font-weight: 600;
+	text-indent: 2em;
+	line-height: 80px;
+}
+
+.ad-box .right {
+	width: 50%;
+	text-align: center;
+}
+
+.ad-box .right a {
+	line-height: 160px;
+}
+
+/* 鼠标移上来，图片变大 */
+.ad-box .right:hover img {
+	transform: scale(1.1, 1.1);
+}
+
+/* 动画-过渡 */
+.ad-box img {
+	transition: all 0.5s;
+}
+
+/* ============== 好书热卖\新书推荐\收藏最多 ================= */
+.book-box {
+	width: 110%;
+	height: 610px;
+}
+
+.book-box .book-left {
+	width: 230px;
+	height: 610px;
+	margin-right: 10px;
+
+}
+
+.book-left img {
+	width: 100%;
+	height: 100%;
+}
+
+.book-right li {
+	float: left;
+	width: 230px;
+	height: 300px;
+	margin-right: 10px;
+	background-color: white;
+	transition: all 0.5s;
+}
+
+.book-right li:hover {
+	transform: translateY(-5px);
+	box-shadow: 0 3px 13px 3px rgba(0, 0, 0, 0.2);
+}
+
+.book-right a {
+	display: block;
+	width: 100%;
+	height: 100%;
+	padding-top: 18px;
+	text-align: center;
+	text-decoration: none;
+}
+
+.book-right a img {
+	width: 160px;
+}
+
+.book-right .book-name {
+	margin-top: 18px;
+	font-size: 16px;
+}
+
+.book-right .book-price {
+	margin-top: 28px;
+	color: red;
+	font-size: 16px;
+}

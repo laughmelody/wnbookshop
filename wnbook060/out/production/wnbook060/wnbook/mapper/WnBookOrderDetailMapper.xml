@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="wnbook.mapper.WnBookOrderDetailMapper">
+    <resultMap id="WnBookOrderDetailResult" type="WnBookOrder">
+        <id column="id" property="id"/>
+        <result column="book_id" property="bookId"/>
+        <result column="book_name" property="bookName"/>
+        <result column="book_price" property="bookPrice"/>
+        <result column="orderId" property="orderId"/>
+        <result column="buy_count" property="buyCount"/>
+        <result column="total" property="total"/>
+        <result column="gmt_create" property="gmtCreate"/>
+        <result column="gmt_modified" property="gmtModified"/>
+        <result column="is_delete" property="isDelete"/>
+    </resultMap>
+    <insert id="insertOrderDetail" parameterType="list">
+        insert into wn_book_order_detail
+        (book_id,book_price,order_id,buy_count,total,gmt_create,gmt_modified,is_delete)
+        values
+        <foreach collection="list" separator="," item="o">
+            (#{o.bookId},#{o.bookPrice},#{o.orderId},#{o.buyCount},#{o.total},now(),now(),0)
+        </foreach>
+    </insert>
+
+
+</mapper>

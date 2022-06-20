@@ -1,0 +1,101 @@
+@font-face {
+  font-family: "iconfont"; /* Project id 2214857 */
+  src: url('../font/iconfont.woff2?t=1651481807530') format('woff2'),
+       url('../font/iconfont.woff?t=1651481807530') format('woff'),
+       url('../font/iconfont.ttf?t=1651481807530') format('truetype');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+/*  ================= CSS初始化 ========================= */
+* {
+	margin: 0;
+	padding: 0
+}
+
+em,
+i {
+	font-style: normal
+}
+li {
+	list-style: none
+}
+img {
+	border: 0;
+	vertical-align: middle
+}
+body {
+	color: #666
+	font: 12px/1.5 Microsoft YaHei, Heiti SC, tahoma, arial, Hiragino Sans GB, "\5B8B\4F53", sans-serif;
+	background-color: #F4F4F4;
+	-webkit-font-smoothing: antialiased;
+}
+a {
+	color: #666;
+	text-decoration: none
+}
+a:hover {
+	color: #c81623
+}
+
+
+/*  ================= 公共类 ========================= */
+.container {
+	width: 1190px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.no-padding {
+	padding: 0;
+}
+
+.no-margin {
+	margin-left:0;
+	margin-right: 0;
+}
+
+.clear {
+	overflow: hidden;
+}
+
+.fl {
+	float: left;
+}
+.fr {
+	float: right;
+}
+.mt5 {
+	margin-top: 5px;
+}
+.mt10 {
+	margin-top: 10px;
+}
+.mt15 {
+	margin-top: 15px;
+}
+.mt50 {
+	margin-top: 50px;
+}
+.mr5 {
+	margin-right: 5px;
+}
+.mr18 {
+	margin-right: 18px;
+}
+.mr420 {
+	margin-right: 420px;
+}
+.ml100 {
+	margin-left: 100px;
+}
+.ml10 {
+	margin-left: 20px;
+}

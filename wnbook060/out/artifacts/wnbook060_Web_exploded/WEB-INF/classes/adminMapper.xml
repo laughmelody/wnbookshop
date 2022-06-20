@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="wnbook.dao.AdminDao">
+    <select id="selectAllAdmin" resultType="wnbook.entity.WnBookAdmin">
+        select * from wn_book_admin
+    </select>
+    <insert id="insertAdmin" parameterType="wnbook.entity.WnBookAdmin">
+        insert into  wn_book_admin(username,password,tel,gmt_create) values (#{username},#{password},#{tel},now())
+    </insert>
+    <update id="updateAdmin" parameterType="wnbook.entity.WnBookAdmin">
+        update wn_book_admin set username = #{username},password=#{password},gmt_modified=now() where id=#{id}
+    </update>
+    <delete id="deleteAdminById" parameterType="int">
+        delete from wn_book_admin where id = #{id}
+    </delete>
+    <select id="selectAdminByKeyWord" resultType="wnbook.entity.WnBookAdmin" parameterType="String">
+        select * from wn_book_admin where username like concat('%',#{name},'%')
+    </select>
+</mapper>

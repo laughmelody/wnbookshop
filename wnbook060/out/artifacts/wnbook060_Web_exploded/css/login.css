@@ -1,0 +1,337 @@
+@charset "utf-8"
+
+* {
+	font-family: 微软雅黑;
+	font-size: 16px;
+	color: #707070;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	color: #707070;
+}
+
+p {
+	line-height: 22px;
+}
+
+a {
+	text-decoration: none;
+}
+
+input {
+	outline: none;
+}
+
+textarea {
+	outline: none;
+}
+
+form {
+	display: block;
+	margin-top: 0em;
+	background-color: #fff;
+}
+
+/* ========== 公共类 ============ */
+
+.wp {
+	width: 100%;
+	margin: 0 auto;
+}
+
+.h23 {
+	height: 23px;
+}
+
+.right-link {
+	margin: 0;
+	/*padding: 12px;*/
+	font-size: 12px;
+	line-height: 20px;
+	text-align: center;
+	word-break: break-all;
+	word-wrap: break-word;
+
+}
+
+.w90p {
+
+	width: 100%;
+	margin: 0;
+
+}
+
+.fl {
+	float: left;
+}
+
+.fr {
+	float: right;
+}
+
+.fs10 {
+	font-size: 10px;
+}
+
+.mr10 {
+	margin-right: 10px;
+}
+
+.mt10 {
+	margin-top: 10px;
+}
+.mt100 {
+	margin-top: 100px;
+}
+
+.tc {
+	display: table-cell;
+}
+
+.pt10 {
+	padding-top: 10px;
+}
+
+.pt15 {
+	padding-top: 15px;
+}
+
+.pl20 {
+	padding-left: 20px;
+}
+
+.pr20 {
+	padding-right: 20px;
+}
+
+.h50 {
+	height: 50px;
+}
+
+.h40 {
+	height: 40px;
+}
+
+.h32 {
+	height: 32px;
+}
+
+.h252 {
+	height: 252px;
+}
+
+.h38 {
+	height: 38px;
+}
+
+.h34 {
+	height: 34px;
+}
+
+.h50 {
+	height: 50px;
+}
+
+/* ======================= header ===================== */
+.w {
+	width: 990px;
+	margin: 0 auto;
+}
+
+.header {
+	height: 60px;
+	margin-top: 10px;
+}
+
+.logo {
+	width: 300px;
+	height: 60px;
+	float: left;
+}
+
+.logo img {
+	margin-top: 15px;
+}
+
+.logo span {
+	line-height: 60px;
+	padding-top: 10px;
+	height: 50px;
+	font-size: 20px;
+	display: block;
+	float: right;
+}
+
+/*-- content --*/
+
+.warning-wrap {
+	height: 40px;
+	background-color: #FFF7EC;
+}
+
+.warning .iconfont {
+	font-size: 18px;
+}
+
+.warning-wrap .warning p {
+	margin: 0;
+	margin-top: 10px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	font-size: 16px;
+	text-align: center;
+}
+
+.login-wrap {
+	background-color: #000200;
+}
+
+.login-wrap .content {
+	padding: 10px 0;
+	height: 475px;
+	background-image: url(../img/book-bg.jpg);
+	background-color: #CAD1D0;
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+}
+
+.login-wrap .content .login-form {
+	width: 346px;
+	height: 100%;
+	background-color: #FFFFFF;
+	position: relative;
+	float: right;
+	margin-right: 20px;
+}
+
+/* 表单默认不显示 */
+.login-form form {
+	display: none;
+}
+
+.login-box .login-way {
+	width: 173px;
+	height: 54px;
+	cursor: pointer;
+	font-size: 18px;
+	font-family: "microsoft yahei";
+	text-align: center;
+	border-bottom: 1px solid #f4f4f4;
+	background: #e8e8e8;
+	display: block;
+	line-height: 54px;
+}
+.login-way:hover {
+	color: red;
+}
+
+/* 选中的项  */
+.login-box .active {
+	background-color: #FFFFFF;
+	border: none;
+}
+/* 显示表单 */
+.login-form .show-form {
+	display: block;
+}
+
+
+.tips-wrap {
+	background: #fff8f0;
+	width: 100%;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	text-align: center;
+	border-top: #000000;
+	border-style: 2px, 0px, 0px, 0px;
+}
+
+.login-way a {
+	height: 18px;
+	position: absolute;
+	left: 0;
+	top: 18px;
+	border-right: 1px solid #f4f4f4;
+	text-decoration: none;
+}
+
+.login-plus {
+	border-top: 1px solid #ddd;
+}
+
+.login-plus ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.login-btn {
+	height: 38px;
+	background-color: #DB212E;
+	width: 100%;
+}
+
+.login-btn a {
+	color: #FFFFFF;
+	text-align: center;
+	display: block;
+	line-height: 38px;
+	height: 100%;
+	font-size: 20px;
+}
+
+.itxt {
+	height: 38px;
+	border: 1px solid #CCC;
+	width: 254px;
+	font-size: 15px;
+	padding-left: 15px;
+}
+
+.itxt-icon {
+	width: 38px;
+	height: 38px;
+	/* 引入bootstrap后，下移5个像素才对齐 */
+	margin-top: 5px;  
+	border: 1px solid #CCC;
+	border-right: 0;
+	background-color: #EFEFEF;
+	display: inline-block;
+}
+
+/* 弹性盒子，内容垂直、水平居中排列 */
+.center {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.footer {
+	height: 86px;
+	position: relative;
+	background-color: #fff;
+}
+
+.footer-links {
+	position: absolute;
+	margin: auto;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+
+.footer a {
+	margin-left: 10px;
+	margin-right: 10px;
+	color: #707070;
+}
+
+.footer a:hover {
+	color: #DB212E;
+	text-decoration: underline;
+}
+
+

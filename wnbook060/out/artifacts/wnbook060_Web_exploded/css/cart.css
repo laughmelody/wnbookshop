@@ -1,0 +1,47 @@
+.cart-name {
+	font-size: 28px;
+	color: #d9534f;
+}
+.table {
+	background-color: #FFFFFF;
+}
+.table img {
+	width: 100px;
+}
+.table #last-tr .buy {
+	width: 100px;
+	height: 30px;
+	background-color: #d9534f;
+	color: #FFFFFF;
+}
+.table td {
+	text-align: center;
+}
+.table #last-tr td {
+	line-height: 36px;
+	text-align: left;
+}
+.table #last-tr a {
+	color: black;
+	text-decoration: none;
+}
+
+.choic-num, .total {
+	color: red;
+}
+.total {
+	font-size: 20px;
+}
+
+/* ======== 购物车数量 ========== */
+.input-group {
+	width: 112px;
+	margin: 0 auto;
+}
+.input-group input {
+	padding: 0;
+	text-align: center;
+}
+.input-group .glyphicon {
+	top: 0;
+}

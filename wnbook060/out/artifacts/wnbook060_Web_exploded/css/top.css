@@ -1,0 +1,162 @@
+/* ================= 最顶层的导航栏 ================= */
+.top-nav {
+	height: 30px;
+	border-top: 1px solid #DADCE0;
+	background-color: #E3E4E5;
+	line-height: 30px;
+}
+
+.top-nav li {
+	float: right;
+}
+
+.top-nav .container {
+	overflow: hidden;
+}
+
+.top-nav .down {
+	font-family: iconfont;
+}
+
+.location-top {
+	color: red;
+}
+
+.spacer {
+	margin: 0 12px;
+}
+
+/* =================== 头部 =============================== */
+.head {
+	background-color: #FFFFFF;
+	border-top: 1px solid #DADCE0;
+}
+
+.head .container {
+	position: relative;
+	padding: 10px 0;
+	overflow: hidden;
+}
+
+.search {
+	height: 120px;
+	overflow: hidden;
+}
+
+.logo h1 {
+	width: 168px;
+	height: 39px;
+	margin-top: 20%;
+	background: url(../img/title-logo.png) no-repeat;
+}
+
+.logo a {
+	font-size: 0;
+}
+
+/* 搜索框 */
+
+.search .photo,
+.search-icon {
+	font-family: iconfont;
+}
+
+.search .search-box {
+	position: relative;
+	width: 546px;
+	height: 34px;
+	border: 2px solid #e2231a;
+
+	margin-left: 70px;
+}
+
+.search-box input {
+	width: 484px;
+	height: 30px;
+	border: 0;
+	outline: none;
+	color: lightgray;
+	padding-left: 17px;
+}
+
+.search-box .photo {
+	position: absolute;
+	top: 2px;
+	right: 75px;
+	font-size: 20px;
+}
+
+.search-box .photo:hover {
+	color: #e2231a;
+}
+
+.search .up {
+	overflow: hidden;
+	margin-top: 18px;
+}
+
+.search-box .search-icon {
+	width: 58px;
+	height: 32px;
+	color: white;
+	text-align: center;
+	line-height: 32px;
+	font-size: 18px;
+	background-color: #e2231a;
+}
+
+.up .cart {
+	position: relative;
+	width: 130px;
+	height: 34px;
+	line-height: 34px;
+	border: 1px solid #EEEEEE;
+}
+
+.up .cart:hover {
+	border-color: #e2231a;
+}
+
+.cart span {
+	margin-left: 19px;
+	margin-right: 15px;
+}
+
+.cart .num {
+	position: absolute;
+	top: 1px;
+	left: 30px;
+	padding: 1px 4px;
+	line-height: 12px;
+	font-size: 12px;
+	color: white;
+	background-color: #e2231a;
+	border-radius: 42%;
+}
+.cart .num :hover{
+	getNum();
+}
+.search-box .left {
+	width: 100%;
+	height: 32px;
+}
+
+.navitems li {
+	float: left;
+	margin-top: 30px;
+	margin-right: 22px;
+}
+
+.navitems li a {
+	font-size: 15px;
+}
+
+.red-and-weight {
+	color: red;
+	font-weight: 600;
+}
+
+.search .navitems {
+	margin-left: 25px;
+	overflow: hidden;
+}

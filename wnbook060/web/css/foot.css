@@ -1,0 +1,41 @@
+
+/* ================== 最后的网站底部 ====================== */
+#footer {
+	color: #666666;
+	height: 300px;
+	border-top: 1px solid gray;
+	margin-top: 50px;
+	line-height: 300px;
+	font: 15px "Microsoft YaHei UI";
+}
+
+#footer a {
+	color: #666666;
+	
+}
+
+#footer a:hover {
+	color: white;
+	text-decoration: none;
+}
+
+#footer dt {
+	font: 20px/100px "Microsoft YaHei UI";
+}
+
+#footer dd {
+	font: 14px/40px "Microsoft YaHei UI";
+}
+
+#footer #tel {
+	font: 25px/60px "Microsoft YaHei UI";
+}
+
+#footer .openDate {
+	line-height: 20px;
+}
+
+#footer img {
+	height: 100px;
+	width: 100px;
+}

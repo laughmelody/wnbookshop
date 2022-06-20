@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="wnbook.mapper.WnBookCartMapper">
+    <resultMap id="WnBookCartResult" type="WnBookCart">
+        <id column="id" property="id"/>
+        <result column="user_id" property="userId"/>
+        <result column="book_id" property="bookId"/>
+        <result column="buy_count" property="buyCount"/>
+        <result column="gmt_create" property="gmtCreate"/>
+        <result column="gmt_modified" property="gmtModified"/>
+        <result column="is_delete" property="isDelete"/>
+    </resultMap>
+    <resultMap id="CartResult" type="CartQueryVo">
+        <id column="id" property="cartId"/>
+        <result column="book_id" property="bookId"/>
+        <result column="user_id" property="userId"/>
+        <result column="buy_count" property="buyCount"/>
+        <result column="book_name" property="bookName"/>
+        <result column="book_image" property="bookImage"/>
+        <result column="book_price" property="bookPrice"/>
+    </resultMap>
+    <insert id="insertBookCart" parameterType="WnBookCart">
+        insert into wn_book_cart(user_id,book_id,buy_count,gmt_create,gmt_modified,is_delete)
+            values (#{userId},#{bookId},#{buyCount},now(),now(),0)
+    </insert>
+
+    <update id="updateCartById" parameterType="WnBookCart">
+        update wn_book_cart set buy_count = buy_count +#{buyCount} where id = #{id}
+    </update>
+
+    <select id="selectCartByUidAndBookId" parameterType="WnBookCart" resultType="String">
+        select id from wn_book_cart where user_id = #{userId} and book_id = #{bookId}
+    </select>
+
+    <select id="selectCartQueryVoByUid" parameterType="int" resultMap="CartResult">
+        select cart.id,cart.user_id,cart.buy_count,book.id book_id,book_name,book_image,book_price
+        from wn_book_cart cart,wn_book book
+        where cart.book_id = book.id and cart.user_id = #{id}
+    </select>
+
+
+    <select id="selectCartByIds" resultMap="CartResult">
+        select cart.user_id,cart.buy_count,book.id book_id,book_price
+        from wn_book_cart cart,wn_book book
+        where cart.book_id = book.id and cart.id in
+        <foreach collection="array" open="(" separator="," close=")" item="id">
+            #{id}
+        </foreach>
+    </select>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</mapper>

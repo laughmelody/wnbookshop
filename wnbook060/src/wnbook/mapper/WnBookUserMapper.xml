@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="wnbook.mapper.WnBookUserMapper">
+
+    <resultMap id="WnBookUserResult" type="WnBookUser">
+        <id column="id" property="id"/>
+        <result column="username" property="username"/>
+        <result column="password" property="password"/>
+        <result column="avatar" property="avatar"/>
+        <result column="gender" property="gender"/>
+        <result column="tel" property="tel"/>
+        <result column="email" property="email"/>
+        <result column="status" property="status"/>
+        <result column="gmt_create" property="gmtCreate"/>
+        <result column="gmt_modified" property="gmtModified"/>
+        <result column="is_delete" property="isDelete"/>
+    </resultMap>
+
+    <sql id="baseField">
+        id,username,password,avatar,gender,tel,email,status,gmt_create,gmt_modified,is_delete
+    </sql>
+
+    <!--更新用户头像-->
+    <update id="updateUserImg" parameterType="WnBookUser">
+        update Wn_book_user set avatar = #{avatar} where id = #{id}
+    </update>
+
+
+
+    <!--查询所有用户-->
+    <select id="selectAllUser" resultType="WnBookUser">
+        select id,username,password from wn_book_user
+    </select>
+
+    <!--用户登录-->
+    <select id="selectUserByName" resultType="WnBookUser" parameterType="String">
+        select * from wn_book_user where username = #{username} and status = 1 and is_delete = 0
+    </select>
+
+
+    <select id="selectUserById" parameterType="int" resultType="WnBookUser">
+        select * from wn_book_user where id = #{id}
+    </select>
+
+
+
+    <insert id="insertUser" parameterType="wnbook.entity.WnBookUser">
+        <selectKey keyColumn="id" keyProperty="id" resultType="int" order="AFTER">
+            select last_insert_id()
+        </selectKey>
+        insert into  wn_book_user(username,password,tel,gmt_create)
+        values (#{username},#{password},#{tel},now())
+    </insert>
+
+    <update id="updateUser" parameterType="WnBookUser">
+        update wn_book_user
+        <set>
+            <if test="username !=null">username = #{username},</if>
+            <if test="password !=null">password = #{password},</if>
+<!--            <if test="gmtModified !=null">gmt_modified=now()</if>-->
+        </set>
+        where id=#{id}
+    </update>
+
+    <update id="updateMore" parameterType="list">
+        <foreach collection="list" item="user" separator=";">
+        update wn_book_user
+        set username = #{user.username},
+            password=#{user.password},
+            gmt_modified=now()
+        where id=#{user.id}
+        </foreach>
+    </update>
+
+    <delete id="deleteUserById" parameterType="int">
+        delete from wn_book_user where id = #{id}
+    </delete>
+    <select id="selectUserByKeyWord" resultType="wnbook.entity.WnBookUser" parameterType="String">
+        select * from wn_book_user where username like concat('%',#{name},'%')
+    </select>
+
+    <insert id="insertMore" parameterType="list">
+        insert into  wn_book_user(username,password,tel,gmt_create)values
+        <foreach collection="list" separator="," item="user">
+            (#{user.username},#{user.password},#{user.tel},now())
+        </foreach>
+    </insert>
+
+
+
+
+    <!--个人中心的修改信息-->
+    <update id="updateCenter" parameterType="WnBookUser">
+        update wn_book_user
+            <set>
+                <if test="tel !=null"> tel = #{tel},</if>
+                <if test="password !=null"> password = #{password},</if>
+            </set>
+        where id = #{id}
+    </update>
+</mapper>
