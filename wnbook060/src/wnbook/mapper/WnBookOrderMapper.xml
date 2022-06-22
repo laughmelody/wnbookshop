@@ -53,13 +53,21 @@
         where ord.id = detail.order_id and detail.book_id = book.id and ord.id = #{id}
     </select>
 
-    <select id="selectOrderByUserId" parameterType="int" resultMap="WnBookOrderResult">
-        select ord.order_num,ord.status,ord.user_id,user.id
-        from wn_book_order ord,wn_book_user user
-        where ord.user_id = user.id and status = 0 and ord.id = #{id}
+
+
+<!--未支付订单-->
+    <select id="selectOrderByUserId" parameterType="WnBookOrder" resultMap="WnBookOrderResult">
+        select ord.order_num,ord.status,ord.user_id
+        from wn_book_order ord
+        where  ord.user_id=#{userId} and ord.status = 0
     </select>
 
     <select id="selectStatusByUid" parameterType="int" resultType="int">
         select order_num from wn_book_order ord,wn_book_user user where ord.user_id = user.id and ord.status = 0
     </select>
+
+
+    <update id="updateOrderStatus" parameterType="WnBookOrder">
+        update wn_book_order set status = #{status} where order_num = #{orderNum}
+    </update>
 </mapper>

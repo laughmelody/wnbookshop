@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.HashMap;
 
 @WebServlet("/user")
 public class WnBookUserServlet extends HttpServlet {
@@ -43,11 +44,17 @@ public class WnBookUserServlet extends HttpServlet {
         else if ("doEditImg".equals(op)){
             doEditImg(request,response);
         }
+        else if ("checkName".equals(op)){
+            checkName(request,response);
+        }
         else if ("readyCenterEdit".equals(op)){
             readyCenterEdit(request,response);
         }
         else if ("doLogin".equals(op)){
             doLogin(request,response);
+        }
+        else if ("add".equals(op)){
+            add(request,response);
         }
         else if ("centerEdit".equals(op)){
             centerEdit(request,response);
@@ -57,6 +64,37 @@ public class WnBookUserServlet extends HttpServlet {
         }
 
     }
+    protected void add(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String username = (request.getParameter("username"));
+        String password = request.getParameter("password");
+        System.out.println(username+"---------"+password+"----------");
+        int i = wnBookUserServiceImp.addUser(new WnBookUser(username,password));
+        PrintWriter out = response.getWriter();
+        if (i>0){
+            out.write("<script>alert('恭喜，注册成功');location.href='login.jsp';</script>");
+        }else {
+            out.write("<script>alert('对不起,注册失败');history.back();</script>");
+        }
+    }
+
+
+
+    protected void checkName(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String name = request.getParameter("username");
+        System.out.println("要检测的用户名:"+name);
+        WnBookUser user = wnBookUserServiceImp.findUserByName(name);
+        PrintWriter out = response.getWriter();
+        HashMap<String,Boolean> map = new HashMap<>();
+        if (user == null){
+            map.put("valid",true);
+        }else {
+            map.put("valid",false);
+        }
+        JSONObject json = JSONObject.fromObject(user);
+        response.getWriter().print(json);
+    }
+
+
     protected void doLogin(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
        String username =request.getParameter("username");
        String password = request.getParameter("password");

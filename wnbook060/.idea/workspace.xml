@@ -16,8 +16,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Tag Library Descriptor" />
-        <option value="Jsp File" />
         <option value="Interface" />
+        <option value="Jsp File" />
         <option value="Class" />
       </list>
     </option>
@@ -50,9 +50,9 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/SQL 方言" value="MySQL" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../java蜗牛笔记第二阶段/书店9/12_网上书城/shine_bookshop" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/web/bootstrapValidator/css" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="模块" />
+    <property name="project.structure.last.edited" value="库" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="File.Encoding" />
@@ -63,18 +63,18 @@
       <recent name="wnbook.service.imp" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\code\wnbook060\web\bootstrapValidator\css" />
+      <recent name="E:\code\wnbook060\web\WEB-INF" />
       <recent name="E:\code\wnbook060\src\wnbook\mapper" />
       <recent name="E:\code\wnbook060\web" />
       <recent name="E:\code\wnbook060\web\WEB-INF\lib" />
-      <recent name="E:\code\wnbook060\web\javascript" />
-      <recent name="E:\code\wnbook060\web\WEB-INF" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="E:\code\wnbook060\web\WEB-INF" />
+      <recent name="E:\code\wnbook060\web\bootstrapValidator\css" />
+      <recent name="E:\code\wnbook060\web\bootstrapValidator" />
       <recent name="E:\code\wnbook060\web" />
+      <recent name="E:\code\wnbook060\web\WEB-INF" />
       <recent name="E:\code\wnbook060\web\WEB-INF\lib" />
-      <recent name="E:\code\wnbook060\src" />
-      <recent name="E:\code\wnbook060\src\wnbook" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="wnbook.servlet" />
@@ -360,7 +360,11 @@
       <workItem from="1655557153639" duration="8030000" />
       <workItem from="1655604945485" duration="2717000" />
       <workItem from="1655608361922" duration="16439000" />
-      <workItem from="1655687258008" duration="1550000" />
+      <workItem from="1655687258008" duration="19398000" />
+      <workItem from="1655729444251" duration="1528000" />
+      <workItem from="1655731001822" duration="9000" />
+      <workItem from="1655731139379" duration="6265000" />
+      <workItem from="1655774527363" duration="15659000" />
     </task>
     <servers />
   </component>

@@ -15,6 +15,8 @@ public interface WnBookUserMapper {
 
     int insertUser(WnBookUser admin);
 
+    int registUser(WnBookUser user);
+
     int updateUser(WnBookUser user);
 
     int updateCenter(WnBookUser user);
@@ -26,4 +28,7 @@ public interface WnBookUserMapper {
     int insertmore(WnBookUser admin);
 
     int updateMore(List<WnBookUser> list);
+
+    //登录方法
+    WnBookUser selectPasswordByName(WnBookUser user);
 }

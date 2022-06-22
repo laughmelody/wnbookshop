@@ -1,5 +1,6 @@
 package wnbook.servlet;
 
+import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 import wnbook.entity.CartQueryVo;
 import wnbook.entity.WnBookCart;
@@ -33,12 +34,49 @@ public class WnBookCartServlet extends HttpServlet {
         else if ("findByUid".equals(op)){
             findByUid(request,response);
         }
-
-
+        else if ("findByIds".equals(op)){
+            findByIds(request,response);
+        }
+        else if ("findCartCount".equals(op)){
+            findCartCount(request,response);
+        }
+        else if ("delByIds".equals(op)){
+            delByIds(request,response);
+        }
         else {
             System.out.println("-----操作符有误-----");
         }
 
+    }
+
+    protected void delByIds(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        int id = Integer.parseInt(request.getParameter("id"));
+         wnBookCartServiceImp.removeCartById(id);
+
+        request.getRequestDispatcher("order.jsp").forward(request,response);
+    }
+
+
+    //根据ids查询购物车数据
+    protected void findByIds(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String[] ids = request.getParameterValues("id");
+        List<CartQueryVo> list = wnBookCartServiceImp.findCartsByIds(ids);
+        request.setAttribute("list",list);
+        request.setAttribute("ids",ids);
+        request.getRequestDispatcher("./order?op=addOrder").forward(request,response);
+    }
+
+
+
+
+    //购物车
+    protected void findCartCount(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        WnBookUser loginUser = (WnBookUser) request.getSession().getAttribute("loginUser");
+        int uid = loginUser.getId();
+        int i = wnBookCartServiceImp.findCartCount(uid);
+        System.out.println("--------->"+i);
+
+        response.getWriter().print(i);
     }
 
 

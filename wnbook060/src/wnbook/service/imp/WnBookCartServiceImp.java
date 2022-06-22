@@ -53,5 +53,20 @@ public class WnBookCartServiceImp implements WnBookCartService {
         return mapper.selectCartQueryVoByUid(uid);
     }
 
+    @Override
+    public List<CartQueryVo> findCartsByIds(String[] ids) {
+        return mapper.selectCartByIds(ids);
+    }
+
+    @Override
+    public int findCartCount(int id) {
+        return mapper.selectCartCount(id);
+    }
+
+    @Override
+    public int removeCartById(int id) {
+        return mapper.deleteCart(id);
+    }
+
 
 }

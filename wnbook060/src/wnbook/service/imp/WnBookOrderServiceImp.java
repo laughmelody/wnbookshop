@@ -6,16 +6,15 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.apache.log4j.PropertyConfigurator;
 import wnbook.entity.*;
-import wnbook.mapper.WnBookAddressMapper;
 import wnbook.mapper.WnBookCartMapper;
 import wnbook.mapper.WnBookOrderDetailMapper;
 import wnbook.mapper.WnBookOrderMapper;
-import wnbook.service.WnBookAddressService;
 import wnbook.service.WnBookOrderService;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class WnBookOrderServiceImp implements WnBookOrderService {
@@ -43,17 +42,18 @@ public class WnBookOrderServiceImp implements WnBookOrderService {
 
 
     @Override
-    public int addOrder(WnBookOrder order, String[] ids) {
+    public int addOrder(WnBookOrder order, List<CartQueryVo> list) {
         ArrayList<WnBookOrderDetail> orderDetailList = new ArrayList<>();
         //先把订单新增进数据库，成功后，再增加订单详情
         int i = mapper.insertBookOrder(order);
         if (i>0){
-            List<CartQueryVo> list = wnBookCartMapper.selectCartByIds(ids);
+          //  List<CartQueryVo> list = wnBookCartMapper.selectCartByIds(ids);
             for (CartQueryVo car :list){
-                orderDetailList.add(new WnBookOrderDetail(order.getId(), car.getBookId(), car.getBookPrice(),
-                        car.getBuyCount(), car.getBookPrice()* car.getBuyCount()));
+                orderDetailList.add(new WnBookOrderDetail(car.getBookId(),car.getBookPrice(),order.getId(),
+                        car.getBuyCount(), car.getBookPrice()* car.getBuyCount(),new Date(),new Date(),0));
             }
             int ii = wnBookOrderDetailMapper.insertOrderDetail(orderDetailList);
+            System.out.println("订单详情写入到数据库:"+ii);
             sqlSession.commit();
             return ii;
         }else {
@@ -68,7 +68,16 @@ public class WnBookOrderServiceImp implements WnBookOrderService {
     }
 
     @Override
-    public WnBookOrder findOrderByUserId(int id) {
+    public List<WnBookOrder> findOrderByUserId(int id) {
         return mapper.selectOrderByUserId(id);
+    }
+
+    @Override
+    public int modifyOrderStatus(WnBookOrder order) {
+        int i  = mapper.updateOrderStatus(order);
+        if (i>0){
+            sqlSession.commit();
+        }
+        return i;
     }
 }

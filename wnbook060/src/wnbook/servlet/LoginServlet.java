@@ -1,23 +1,21 @@
 package wnbook.servlet;
 
 import wnbook.entity.WnBookUser;
+import wnbook.service.imp.WnBookLoginServiceImp;
 import wnbook.service.imp.WnBookUserServiceImp;
-import wnbook.service.imp.wnLoginServiceImp;
-
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.SQLException;
 import java.util.Date;
 
 @WebServlet("/login")
 public class LoginServlet extends HttpServlet {
-    WnBookUserServiceImp wnBookUserServiceImp;
+    WnBookLoginServiceImp wnBookLoginServiceImp;
     public LoginServlet(){
-        wnBookUserServiceImp = new WnBookUserServiceImp();
+        wnBookLoginServiceImp = new WnBookLoginServiceImp();
     }
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -37,23 +35,19 @@ public class LoginServlet extends HttpServlet {
         String op = request.getParameter("op");
         System.out.println("LoginServlet:op=" + op);
         if ("login".equals(op)){
-            try {
-                login(request,response);
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
+            login(request,response);
         }else if ("loginOut".equals(op)){
             loginOut(request,response);
         }else {
             System.out.println("-----操作符有误-----");
         }
     }
-    protected void login(HttpServletRequest request,HttpServletResponse response) throws IOException, SQLException {
+    protected void login(HttpServletRequest request,HttpServletResponse response) throws IOException{
         String userName = request.getParameter("userName");
         String password = request.getParameter("password");
         System.out.println(userName + password);
         //根据用户名和密码去数据库查找，得到结果
-        int i = wnLoginServiceImp.findUserBylogin(new WnBookUser(userName,password));
+        int i = wnBookLoginServiceImp.findUserBylogin(new WnBookUser(userName,password));
         //访问相应的service，再得到结果
         PrintWriter out = response.getWriter();
         //根据结果返回信息
@@ -97,6 +91,6 @@ public class LoginServlet extends HttpServlet {
     protected void loginOut(HttpServletRequest request,HttpServletResponse response) throws IOException {
         request.getSession().removeAttribute("loginName");
         //使用响应对象，重定向-生成新的请求和响应
-        response.sendRedirect("back-login.jsp");
+        response.sendRedirect("index.jsp");
     }
 }

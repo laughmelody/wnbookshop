@@ -116,7 +116,7 @@ function toOrder(){
 		
 	})
 	let totalPrice = $(".total").html().trim();
-	let path ="./order?op=addOrder&totalPrice="+totalPrice+ids;
+	let path ="./cart?op=findByIds&totalPrice="+totalPrice+ids;
 	console.log(path);
 	 location.href=path;
 	// console.log(ids.substring(0,ids.length-1));

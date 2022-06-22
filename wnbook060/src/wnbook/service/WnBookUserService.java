@@ -20,7 +20,8 @@ public interface WnBookUserService {
 
     int modifyWnBookUserImg(WnBookUser user);
 
-
+    //登录方法
+//    int findUserBylogin(WnBookUser user);
 
 
 

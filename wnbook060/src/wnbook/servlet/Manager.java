@@ -21,6 +21,9 @@ public class    Manager extends HttpServlet {
         else if ("toWelcome".equals(op)){
             toWelcome(request,response);
         }
+        else if ("showCart".equals(op)){
+            showCart(request,response);
+        }
         else if ("addPage".equals(op)){
             addPage(request,response);
         }
@@ -41,6 +44,9 @@ public class    Manager extends HttpServlet {
         }
         //后台管理页面，在web-inf目录下，这个目录只能通过转发访问
 //        request.getRequestDispatcher("WEB-INF/back-login.jsp").forward(request,response);
+    }
+    protected void showCart(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.getRequestDispatcher("WEB-INF/showCart.jsp").forward(request,response);
     }
     protected void showAllCategory(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.getRequestDispatcher("WEB-INF/showAllCategory.jsp").forward(request,response);

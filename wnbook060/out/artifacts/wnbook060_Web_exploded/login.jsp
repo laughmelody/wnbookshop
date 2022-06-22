@@ -110,7 +110,7 @@
                 </form>
 
                 <!-- =========================== 注册的表单 ======================== -->
-                <form id="register" class="form form-horizontal" action="./user?op=add" >
+                <form id="register" class="form form-horizontal" action="./user?op=add" method="post">
                     <div class="pl20 pr20">
                         <div class="h34"></div>
 
@@ -147,7 +147,8 @@
 
                         <div class="wp mt100">
                             <div class="h50 center">
-                                <div class="login-btn"><button type="submit">注&nbsp;&nbsp;&nbsp;&nbsp;册</button>
+                                <div class="login-btn" onclick="add()">
+                                <button type="submit" >注&nbsp;&nbsp;&nbsp;&nbsp;册</button>
                                 </div>
                             </div>
                         </div>
@@ -196,94 +197,102 @@
     <%--    }--%>
     <%--});--%>
     <%--$.get("${pageContext.request.contextPath}/user",{--%>
-    <%--    "op":"chechkName",--%>
+    <%--    "op":"checkName",--%>
     <%--    "name":obj.value--%>
     <%--},function (msg){--%>
     <%--    alert("服务器信息"+msg);--%>
     <%--})--%>
 
+<!--验证插件-->
+    <%--$('#register').bootstrapValidator({--%>
+    <%--        message: '这是默认的提示信息',--%>
+    <%--        feedbackIcons: {--%>
+    <%--            valid: 'glyphicon glyphicon-ok',--%>
+    <%--            invalid: 'glyphicon glyphicon-remove',--%>
+    <%--            validating: 'glyphicon glyphicon-refresh'--%>
+    <%--        },--%>
+    <%--        fields: {--%>
+    <%--            username: {--%>
+    <%--                message: '用户名，没有验证',--%>
+    <%--                validators: {--%>
+    <%--                    notEmpty: {--%>
+    <%--                        message: '用户名不可以为空'--%>
+    <%--                    },--%>
+    <%--                    stringLength: {--%>
+    <%--                        min: 2,--%>
+    <%--                        max: 30,--%>
+    <%--                        message: '用户名最少2个字符，最大30个字符'--%>
+    <%--                    },--%>
+    <%--                    remote: {--%>
+    <%--                        url: '${pageContext.request.contextPath}/user?op=checkName'+$("#register input[name=username]").val(),--%>
+    <%--                        message: '名字已经被使用',--%>
+    <%--                        type:'get',--%>
+    <%--                        delay:500--%>
+    <%--                    },--%>
+    <%--                    regexp: {--%>
+    <%--                        regexp: /^[\w]{2,20}$/,--%>
+    <%--                        message: '用户名是2-20位字符'--%>
+    <%--                    }--%>
+    <%--                }--%>
+    <%--            },--%>
 
-    $('#register').bootstrapValidator({
-            message: '这是默认的提示信息',
-            feedbackIcons: {
-                valid: 'glyphicon glyphicon-ok',
-                invalid: 'glyphicon glyphicon-remove',
-                validating: 'glyphicon glyphicon-refresh'
-            },
-            fields: {
-                username: {
-                    message: '用户名，没有验证',
-                    validators: {
-                        notEmpty: {
-                            message: '用户名不可以为空'
-                        },
-                        stringLength: {
-                            min: 2,
-                            max: 30,
-                            message: '用户名最少2个字符，最大30个字符'
-                        },
-                        remote: {
-                            url: '${pageContext.request.contextPath}/user?op=checkName'+$("#register input[name=username]").val(),
-                            message: '名字已经被使用',
-                            type:'get',
-                            delay:500
-                        },
-                        regexp: {
-                            regexp: /^[\w]{2,20}$/,
-                            message: '用户名是2-20位字符'
-                        }
-                    }
-                },
+    <%--            password: {--%>
+    <%--                validators: {--%>
+    <%--                    notEmpty: {--%>
+    <%--                        message: '密码不能为空!'--%>
+    <%--                    },--%>
+    <%--                    stringLength: {--%>
+    <%--                        min: 6,--%>
+    <%--                        max: 18,--%>
+    <%--                        message: '密码应该是6-18位的字符'--%>
+    <%--                    },--%>
+    <%--                    regexp: {--%>
+    <%--                        regexp: /^[a-z|0-9|A-Z]+$/,--%>
+    <%--                        message: '密码应该是数字英文组合',--%>
+    <%--                    }--%>
+    <%--                }--%>
+    <%--            },--%>
+    <%--            password2: {--%>
+    <%--                validators: {--%>
+    <%--                    notEmpty: {--%>
+    <%--                        message: '密码不能为空!'--%>
+    <%--                    },--%>
+    <%--                    identical: {--%>
+    <%--                        field: 'password',--%>
+    <%--                        message: '两次密码应该是一致的'--%>
+    <%--                    }--%>
 
-                password: {
-                    validators: {
-                        notEmpty: {
-                            message: '密码不能为空!'
-                        },
-                        stringLength: {
-                            min: 6,
-                            max: 18,
-                            message: '密码应该是6-18位的字符'
-                        },
-                        regexp: {
-                            regexp: /^[a-z|0-9|A-Z]+$/,
-                            message: '密码应该是数字英文组合',
-                        }
-                    }
-                },
-                password2: {
-                    validators: {
-                        notEmpty: {
-                            message: '密码不能为空!'
-                        },
-                        identical: {
-                            field: 'password',
-                            message: '两次密码应该是一致的'
-                        }
+    <%--                }--%>
+    <%--            }--%>
+    <%--        }--%>
+    <%--    })--%>
+    <%--    .on('success.form.bv', function(e) {--%>
+    <%--        // Prevent form submission--%>
+    <%--        e.preventDefault();--%>
 
-                    }
-                }
-            }
-        })
-        .on('success.form.bv', function(e) {
-            // Prevent form submission
-            e.preventDefault();
+    <%--        // Get the form instance--%>
+    <%--        var $form = $(e.target);--%>
 
-            // Get the form instance
-            var $form = $(e.target);
+    <%--        // Get the BootstrapValidator instance--%>
+    <%--        var bv = $form.data('bootstrapValidator');--%>
 
-            // Get the BootstrapValidator instance
-            var bv = $form.data('bootstrapValidator');
+    <%--        // Use Ajax to submit form data--%>
+    <%--        $.post($form.attr('action'), $form.serialize(), function(result) {--%>
+    <%--            console.log(result);--%>
+    <%--            if (result>0){--%>
+    <%--                alert("注册成功！请去登录");--%>
+    <%--                location.href="index.jsp"--%>
+    <%--            }else if (result == 0){--%>
+    <%--                alert("对不起！密码错误");--%>
+    <%--                history.back();--%>
+    <%--            }else{--%>
+    <%--                alert("对不起,用户名错误");--%>
+    <%--                history.back();--%>
+    <%--            }--%>
 
-            // Use Ajax to submit form data
-            $.post($form.attr('action'), $form.serialize(), function(result) {
-               if ("ok"==result){
-                   location.href="login.jsp";
-               }else {
-                   alert(result);
-               }
-            });
-        });
+    <%--           },'json');--%>
+    <%--        });--%>
+
 
 
 
@@ -305,6 +314,9 @@
         }
     }
 
+    function add(){
+        $("#register").submit();
+    }
   
 </script>
 

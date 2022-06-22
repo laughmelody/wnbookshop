@@ -187,21 +187,5 @@ function addressAdd(){
 
 	location.href = "./address?op=add&address="+address+"&addtel="+addtel+"&addreceiver="+addreceiver;
 }
-// function addressAdd(){
-// 	$.ajax({
-// 		url: "./address?=add",
-// 		data: $("#form-newadd").serialize(),
-// 		type: "post",
-// 		success: function (msg) {
-// 			if (msg=="ok"){
-// 				$('#addtable').bootstrapTable("refresh");
-// 				console.log("=========");
-// 				$("#form-newadd")[0].reset();
-// 			}else {
-// 				alert("对不起，新增失败");
-// 			}
-//
-// 		}
-// 	})
-// }
+
 

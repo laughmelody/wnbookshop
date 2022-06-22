@@ -52,18 +52,15 @@
 
 
 
+    <!--购物车角标-->
+    <select id="selectCartCount" parameterType="WnBookCart" resultType="int">
+        select count(buy_count) from wn_book_cart where user_id = #{userId}
+    </select>
 
-
-
-
-
-
-
-
-
-
-
-
+    <!--下单后清空-->
+    <delete id="deleteCart" parameterType="int">
+        delete from wn_book_cart where id = #{id}
+    </delete>
 
 
 </mapper>

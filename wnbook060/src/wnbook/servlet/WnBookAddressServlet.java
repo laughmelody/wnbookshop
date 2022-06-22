@@ -45,9 +45,7 @@ public class WnBookAddressServlet extends HttpServlet {
         WnBookUser user = (WnBookUser)request.getSession().getAttribute("loginUser");
         int userId = user.getId();
         WnBookAddress add = new WnBookAddress(detailAddress,receiver,tel,userId,0,0,new Date(),new Date(),0);
-
         System.out.println("lognUser--->"+user.getId());
-
         System.out.println(add+"------------");
         int i = wnBookAddressServiceImp.addAddress(add);
         if (i>0){
@@ -68,8 +66,8 @@ public class WnBookAddressServlet extends HttpServlet {
     protected void searchByUserId(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         int userid = Integer.parseInt(request.getParameter("userid"));
         System.out.println("查询地址的userid:"+userid);
-
         List<WnBookAddress> list = wnBookAddressServiceImp.findAddressByUserId(userid);
+        System.out.println("用户信息"+list);
         JSONArray jsonArray = JSONArray.fromObject(list);
         response.getWriter().print(jsonArray);
     }

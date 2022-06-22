@@ -41,6 +41,8 @@
                     你好:<span style="color: red" onclick="toCenter()">${loginUser.username}</span>
                 </c:if>
 
+
+
                 &nbsp;&nbsp;
                 <a class="free-login">免费注册</a>
             </li>
@@ -69,15 +71,8 @@
                 <div class="cart fl">
                     <span class="iconfont">&#xe622;</span>
                     <a href="./cart?op=findByUid">我的购物车</a>
-                    <i class="num">
-                        <c:choose>
-                            <c:when test="${!empty cart}">
-                                ${cart.getTotQuan()}
-                            </c:when>
-                            <c:otherwise>
-                                0
-                            </c:otherwise>
-                        </c:choose>
+                    <i class="num" onmouseover="getTotQuan(this)">
+                    0
                     </i>
                 </div>
             </div>
@@ -106,8 +101,20 @@
         location.href="./center.jsp"
     }
 
-    function getTotQuan(){
-        location.href="./cart?op="
+    function getTotQuan(obj){
+        $.ajax({
+            url: "./cart",
+            data:{
+                "op" : "findCartCount",
+                "id": ${loginUser.id},
+                // "username": $("#username").val(),
+            },
+            type: "get",
+            success: function (msg) {
+                obj.innerHTML=msg;
+
+            }
+        })
     }
     <%--function  getNum(state){--%>
     <%--    ${loginUser.userId}--%>

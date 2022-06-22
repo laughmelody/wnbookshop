@@ -57,9 +57,9 @@
 					<div class="order-title">我的订单：</div>
 					<div class="order-option">
 						<div class="col-xs-2 col-xs-offset-1">
-							<div class="op">
+							<div class="op" href="#">
 								<span class="iconfont">&#xe644;</span>
-								<a onclick="myOrder(${loginUser.id})" href='#'>待付款</a>
+								<a onclick="myOrder(${loginUser.id})" href='./manager?op=showCart'>待付款</a>
 							</div>
 						</div>
 						<div class="col-xs-2">

@@ -57,11 +57,12 @@
 		out.println("trade_no:"+trade_no+"<br/>out_trade_no:"+out_trade_no+"<br/>total_amount:"+total_amount);
 		out.println("验签成功");
 //		WnBookUser user = (WnBookUser)request.getSession().getAttribute("loginUser");
+//		int userId = user.getId();
 //		int status = user.getStatus();
 //		status = 1;
 		//支付成功后，要在数据库里把订单的status改成1（已支付）
 		//out_trade_no 是和订单表里ourder_num字段相同
-
+		response.sendRedirect("./order?op=updateStatus&status=1&orderNum="+out_trade_no);
 	}else {
 		out.println("验签失败");
 	}

@@ -18,4 +18,11 @@ public interface WnBookCartMapper {
     int updateCartBuyCount(WnBookCart cart);
     //根据ids查找购物车对象
     List<CartQueryVo> selectCartByIds(String[] ids);
+
+    //购物车角标
+    int selectCartCount(int id);
+
+
+    //删除购物车
+    int deleteCart(int id);
 }

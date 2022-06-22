@@ -46,6 +46,14 @@ public class WnBookOrder {
         this.totalPrice = totalPrice;
     }
 
+    public WnBookOrder(String orderNum, Integer userId, Integer status) {
+        this.orderNum = orderNum;
+        this.userId = userId;
+        this.status = status;
+    }
+
+
+
     public Integer getId() {
         return id;
     }

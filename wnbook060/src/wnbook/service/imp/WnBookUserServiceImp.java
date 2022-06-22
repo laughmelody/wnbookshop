@@ -7,18 +7,16 @@ import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
-import wnbook.dao.imp.WnBookAdminDaoImp;
+
 import wnbook.entity.WnBookUser;
 import wnbook.mapper.WnBookUserMapper;
 import wnbook.service.WnBookUserService;
-import wnbook.util.DbHelper;
+
 
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+
 
 public class WnBookUserServiceImp implements WnBookUserService {
     private  SqlSession sqlSession;
@@ -57,10 +55,10 @@ public class WnBookUserServiceImp implements WnBookUserService {
 
     @Override
     public int addUser(WnBookUser user) {
-        int i = mapper.insertUser(user);
-        if (i>0){
-            sqlSession.commit();
-        }
+        int i = mapper.registUser(user);
+
+        sqlSession.commit();
+
         return i;
     }
 

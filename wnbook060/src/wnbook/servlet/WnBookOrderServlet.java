@@ -1,24 +1,9 @@
 package wnbook.servlet;
 
-import com.github.pagehelper.Page;
-import com.github.pagehelper.PageInfo;
 import net.sf.json.JSONArray;
-import net.sf.json.JSONObject;
-import org.apache.ibatis.io.Resources;
-import org.apache.ibatis.session.SqlSession;
-import org.apache.ibatis.session.SqlSessionFactory;
-import org.apache.ibatis.session.SqlSessionFactoryBuilder;
-import org.apache.log4j.PropertyConfigurator;
-import org.junit.Before;
 import wnbook.entity.*;
-import wnbook.mapper.WnBookMapper;
-import wnbook.mapper.WnBookOrderMapper;
 import wnbook.service.imp.WnBookAddressServiceImp;
-import wnbook.service.imp.WnBookCategoryServiceImp;
 import wnbook.service.imp.WnBookOrderServiceImp;
-import wnbook.service.imp.WnBookServiceImp;
-import wnbook.util.BootstrapPage;
-import wnbook.util.DateUtil;
 import wnbook.util.IDTools;
 
 import javax.servlet.ServletException;
@@ -27,7 +12,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.Date;
 import java.util.List;
 
@@ -55,6 +39,9 @@ public class WnBookOrderServlet extends HttpServlet {
         else if ("pay".equals(op)){
             pay(request,response);
         }
+        else if ("updateStatus".equals(op)){
+            updateStatus(request,response);
+        }
         else if ("noPay".equals(op)){
             noPay(request,response);
         }
@@ -66,35 +53,40 @@ public class WnBookOrderServlet extends HttpServlet {
     //添加订单
     protected void addOrder(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String orderNum = IDTools.getId();
-        WnBookUser loginUser = (WnBookUser) request.getSession().getAttribute("loginUser");
+        WnBookUser loginUser = (WnBookUser)request.getSession().getAttribute("loginUser");
         double totalPrice = Double.parseDouble(request.getParameter("totalPrice"));
         int addressId = wnBookAddressServiceImp.findDefaultByUid(loginUser.getId());
         //得到订单对象
-        WnBookOrder order =new WnBookOrder(orderNum, loginUser.getId(), addressId,totalPrice);
+        WnBookOrder order =new WnBookOrder(orderNum, loginUser.getId(), addressId,totalPrice,0,new Date(),new Date(),0);
         //先得到多个购物车提交过来的记录id，因为可能有多个id，所以使用request.getParameterValues
-        String[] ids = request.getParameterValues("id");
-        int i = wnBookOrderServiceImp.addOrder(order,ids);
+        List<CartQueryVo> cartList = (List<CartQueryVo>)request.getAttribute("list");
+        int i = wnBookOrderServiceImp.addOrder(order,cartList);
         System.out.println("订单增加后的结果:"+i);
         if (i>0){
             System.out.println("成功");
             //成功后，根据刚下好单的id，把订单信息显示在订单页面
             OrderQueryVo orderQueryVo = wnBookOrderServiceImp.findOrderById(order.getId());
-            request.setAttribute("order",orderQueryVo);
+            List<OrderDetailQueryVo> orderDetailList = orderQueryVo.getList();
+            for (OrderDetailQueryVo o : orderDetailList){
+                System.out.println("显示在页面上的详情:"+o);
+            }
             //还有收货地址，可以再次选择
             List<WnBookAddress> list = wnBookAddressServiceImp.findAddressByUserId(loginUser.getId());
+            String[] ids = (String[])request.getAttribute("ids");
             request.setAttribute("order",orderQueryVo);
             request.setAttribute("list",list);
-            request.getRequestDispatcher("order.jsp").forward(request,response);
+            request.setAttribute("ids",ids);
+            request.getRequestDispatcher("cart?op=delByIds").forward(request,response);
         }else {
             System.out.println("失败");
         }
     }
     protected void noPay(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//        WnBookUser loginUser = (WnBookUser) request.getSession().getAttribute("loginUser");
-//        WnBookOrder userId = wnBookOrderServiceImp.findOrderByUserId(loginUser.getId());
-//        String orderNum = request.getParameter("orderNum");
-//        int status = request.getParameter("status");
-//        WnBookOrder order =new WnBookOrder(orderNum,userId,status)；
+        WnBookUser loginUser = (WnBookUser) request.getSession().getAttribute("loginUser");
+        Integer uid = loginUser.getId();
+        List<WnBookOrder> list = wnBookOrderServiceImp.findOrderByUserId(uid);
+        JSONArray jsonArr = JSONArray.fromObject(list);
+        response.getWriter().print(jsonArr);
     }
 
     //修改收货地址
@@ -103,6 +95,20 @@ public class WnBookOrderServlet extends HttpServlet {
     }
 
 
+    //修改订单状态
+    protected void updateStatus(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String orderNum = request.getParameter("orderNum");
+        int status = Integer.parseInt(request.getParameter("status"));
+        WnBookOrder order = new WnBookOrder();
+        order.setOrderNum(orderNum);
+        order.setStatus(status);
+        int i = wnBookOrderServiceImp.modifyOrderStatus(order);
+        if (i>0){
+            response.sendRedirect("index.jsp");
+        }else {
+            throw new ServletException("支付异常");
+        }
+    }
 
 
 

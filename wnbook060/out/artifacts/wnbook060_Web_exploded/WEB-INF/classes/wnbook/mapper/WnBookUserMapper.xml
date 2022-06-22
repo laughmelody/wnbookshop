@@ -56,6 +56,15 @@
         values (#{username},#{password},#{tel},now())
     </insert>
 
+    <insert id="registUser" parameterType="WnBookUser">
+<!--        <selectKey keyColumn="id" keyProperty="id" resultType="int" order="AFTER">-->
+<!--            select last_insert_id()-->
+<!--        </selectKey>-->
+        insert into  wn_book_user(username,password,is_delete)
+        values (#{username},#{password},0)
+    </insert>
+
+
     <update id="updateUser" parameterType="WnBookUser">
         update wn_book_user
         <set>
